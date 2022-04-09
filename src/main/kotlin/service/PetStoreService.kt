@@ -3,6 +3,7 @@ package service
 import Pet
 import io.restassured.RestAssured.*
 import io.restassured.builder.RequestSpecBuilder
+import io.restassured.response.Response
 import io.restassured.specification.RequestSpecification
 
 class PetStoreService {
@@ -11,14 +12,13 @@ class PetStoreService {
         .setBaseUri(baseUrl)
         .addHeader("accept","application/json")
         .addHeader("Content-Type", "application/json")
+        .setRelaxedHTTPSValidation()
         .build()
 
-    fun getPetById(id:Int): Pet {
+    fun getPetById(id:Int): Response {
         return given()
                 .spec(requestSpecification)
             .`when`()
                 .get("pet/$id")
-                .body()
-                .`as`(Pet::class.java)
     }
 }
