@@ -1,8 +1,5 @@
 import com.github.tomakehurst.wiremock.client.WireMock.*
 import com.github.tomakehurst.wiremock.junit5.WireMockTest
-import org.apache.hc.client5.http.impl.classic.CloseableHttpClient
-import org.apache.hc.client5.http.impl.classic.HttpClientBuilder
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import service.PetStoreService
 
