@@ -40,8 +40,8 @@
 # *.iml
 # *.ipr
 
-# CMake
-cmake-build-*/
+# Build
+build/
 
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
@@ -77,7 +77,7 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # IDEA files
-.idea
+.idea/
 
-### Gradle ###
+# Gradle
 .gradle/
