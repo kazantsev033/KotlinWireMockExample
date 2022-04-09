@@ -4,14 +4,13 @@ import org.junit.jupiter.api.Test
 import service.PetStoreService
 
 
-@WireMockTest(proxyMode = true, httpsEnabled = true)
+@WireMockTest(proxyMode = true)
 class PetStoreServiceTest {
     private val petStoreService: PetStoreService = PetStoreService()
 
     @Test
     fun `simple test`() {
-        stubFor(get("/v2/pet/1")
-            .withHost(equalTo("petstore.swagger.io"))
+        stubFor(get(urlMatching("\\/v2\\/pet\\/\\d+\$"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withBody("{\"serviceStatus\": \"running\"}")

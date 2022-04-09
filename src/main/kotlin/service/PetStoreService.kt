@@ -7,12 +7,11 @@ import io.restassured.response.Response
 import io.restassured.specification.RequestSpecification
 
 class PetStoreService {
-    private val baseUrl = "https://petstore.swagger.io/v2/"
+    private val baseUrl = "http://petstore.swagger.io/v2/"
     private val requestSpecification: RequestSpecification = RequestSpecBuilder()
         .setBaseUri(baseUrl)
         .addHeader("accept","application/json")
         .addHeader("Content-Type", "application/json")
-        .setRelaxedHTTPSValidation()
         .build()
 
     fun getPetById(id:Int): Response {
