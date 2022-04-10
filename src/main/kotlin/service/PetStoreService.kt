@@ -1,6 +1,7 @@
 package service
 
 import Pet
+import io.qameta.allure.restassured.AllureRestAssured
 import io.restassured.RestAssured.*
 import io.restassured.builder.RequestSpecBuilder
 import io.restassured.response.Response
@@ -12,6 +13,7 @@ class PetStoreService {
         .setBaseUri(baseUrl)
         .addHeader("accept","application/json")
         .addHeader("Content-Type", "application/json")
+        .addFilter(AllureRestAssured())
         .build()
 
     fun getPetById(id:Int): Response {
